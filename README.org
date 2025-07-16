@@ -1,0 +1,38 @@
+* Overview
+Emacs org-modeで作成した文書を latex beamer を用いてスライドプレゼンテーション形式のPDFファイルにエクスポートするためのひながた。
+
+* 要件
+- 最新の org-mode
+- 基本的な latex 実行環境 (TeX Liveなど) と必要なパッケージ群
+
+* 使い方
+** org-export-dispatcher を使用したエクスポート
+- init.el に次の設定をする。
+- org ファイルを開き =C-c C-e l O= (=C-c C-e= でorg-export-dispatcherを呼び出し、beamer presentation PDFとしてエクスポート) するか、 =M-x org-beamer-export-to-pdf= で直接エクスポートコマンドを実行する。
+
+
+#+NAME: init.el
+#+BEGIN_SRC emacs-lisp :exports none :tangle no
+  (require 'ox-beamer)
+
+  ;; 非同期エクスポートを有効にする
+  (setq org-export-in-background t)
+
+  ;; 非同期エクスポート用のデフォルト設定ファイルを指定
+  (setq org-export-async-init-file (expand-file-name "org-export-async-init.el" user-emacs-directory))
+
+  ;; ファイルと同じディレクトリにorg-async-init.elがあればそちらを使い、そうでなければデフォルトを使う
+  (defun my-dynamic-org-export-async-init-file (&rest _args)
+    "Set `org-export-async-init-file` dynamically based on the current Org file's directory and display the result."
+    (let* ((default-init-file (expand-file-name "org-export-async-init.el" user-emacs-directory))
+           (local-init-file (when buffer-file-name
+                              (expand-file-name "org-export-async-init.el"
+                                                (file-name-directory buffer-file-name)))))
+      (setq org-export-async-init-file
+            (if (and local-init-file (file-exists-p local-init-file))
+                local-init-file
+              default-init-file))))
+  (advice-add 'org-export-dispatch :before #'my-dynamic-org-export-async-init-file)
+
+#+END_SRC
+

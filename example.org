@@ -1,0 +1,87 @@
+#+STARTUP: beamer
+#+OPTIONS: H:2 toc:nil num:t
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [aspectratio=169,t]
+#+BEAMER_THEME: metropolis [block=fill]
+#+BEAMER_HEADER: \setbeamercolor{alerted text}{fg=Maroon}
+#+BEAMER_HEADER: \setbeamertemplate{items}[default]
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+#+TITLE: Emacs でプレゼンテーション
+#+SUBTITLE: org-mode, latex beamer を用いた PDF生成
+#+AUTHOR: 竹ノ下祐二
+#+DATE: \today
+#+EMAIL: y-takenoshita@ous.ac.jp
+#+LATEX_HEADER: \institute[OUS]{
+#+LATEX_HEADER: 岡山理科大・理・動物 (動物社会生態学・霊長類学研究室) \\
+#+LATEX_HEADER: y-takenoshita@ous.ac.jp
+#+LATEX_HEADER: }
+#+CITE_EXPORT: biblatex jpa,backend=biber
+
+* テキスト
+** 地の文
+かれらは、げんきにご飯をたべました。そらのいろはあおでした。みずうみにはぺんぎんがすんでいました。つちにはむしりゅうがいるのでした。はながさくところは、ゆうめいなはなやしきでした。
+
+かれらは、えがおでおどっていました。ねこは、くるまにのっていました。ひかりは、すばらしいものでした。つちには、くろいうんこがあって、かれらは、おもしろがっていました。
+
+** 箇条書き
+- それから、かれらは、さかなをたべました。
+  - さかなは、うますぎて、かれらは、ごちそうさまと言っていました。
+    - そこには、みどりのきがたくさんありました。
+- かれらは、すばらしいところでした。
+ 
+** 番号リスト
+1. そのあとは、かれらは、ねこにあったかいお湯をあげました。
+   1. ねこは、うれしそうにお湯を飲んでいました。
+      1. かれらは、ねこと一緒にすごく幸せそうでした。
+2. つちには、たくさんのむしりゅうがいて、かれらは、おもしろがっていました。
+
+** 定義リスト
+- 項目 :: 最後に、かれらは、えがおでおどって、げんきに帰っていきました。
+- 項目2 :: みんなは、かれらのことを忘れないでしょう。
+- 項目3 :: かれらは、すばらしいひとたちでした。
+
+* ブロックとカラム
+** ブロック
+
+*** ブロック                                                       :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+ブロック内のテキスト
+
+*** アラートブロック                                          :B_alertblock:
+:PROPERTIES:
+:BEAMER_env: alertblock
+:END:
+ブロック内のテキスト
+
+
+*** 例ブロック                                            :B_exampleblock:
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:END:
+例ブロック内のテキスト
+
+*** proofブロック                                                        :B_proof:
+:PROPERTIES:
+:BEAMER_env: proof
+:END:
+proofブロック内テキスト
+
+** 引用ブロック
+***  Quotation                                               :B_quotation:
+:PROPERTIES:
+:BEAMER_env: quotation
+:END:
+quotationブロック内のテキスト
+
+***  Quote                                                       :B_quote:
+:PROPERTIES:
+:BEAMER_env: quote
+:END:
+quoteブロック内のテキスト
+* おわりに
+** 謝辞
+
+** 参考文献
+#+LATEX: \printbibliography[heading=none]

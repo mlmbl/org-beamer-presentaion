@@ -1,0 +1,17 @@
+#+STARTUP: beamer
+#+OPTIONS: H:2 toc:nil num:t
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [aspectratio=169,t]
+#+BEAMER_THEME: metropolis [block=fill]
+#+BEAMER_HEADER: \setbeamercolor{alerted text}{fg=Maroon}
+#+BEAMER_HEADER: \setbeamertemplate{items}[default]
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+#+TITLE: 
+#+SUBTITLE: 
+#+AUTHOR: 
+#+DATE: \today
+#+EMAIL: e-mail@example.com
+#+LATEX_HEADER: \institute[shortinst]{
+#+LATEX_HEADER: 
+#+LATEX_HEADER: }
+#+CITE_EXPORT: biblatex jpa,backend=biber
