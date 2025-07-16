@@ -12,7 +12,7 @@ Emacs org-modeで作成した文書を latex beamer を用いてスライドプ�
 
 
 #+NAME: init.el
-#+BEGIN_SRC emacs-lisp :exports none :tangle no
+#+BEGIN_SRC emacs-lisp :exports code :tangle no
   (require 'ox-beamer)
 
   ;; 非同期エクスポートを有効にする
